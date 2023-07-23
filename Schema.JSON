@@ -1,0 +1,106 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "raspberry",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "MochadIntent",
+                    "slots": [
+                        {
+                            "name": "status",
+                            "type": "STATUS",
+                            "multipleValues": {
+                                "enabled": true
+                            }
+                        }
+                    ],
+                    "samples": [
+                        "turn light {status}",
+                        "turn {status} light"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                }
+            ],
+            "types": [
+                {
+                    "name": "STATUS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "off",
+                                "synonyms": [
+                                    "low",
+                                    "Off"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "on",
+                                "synonyms": [
+                                    "High",
+                                    "On"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "MochadIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "status",
+                            "type": "STATUS",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {},
+                            "validations": [
+                                {
+                                    "type": "hasEntityResolutionMatch",
+                                    "prompt": "Slot.Validation.1671879490221.1380640162438.1121658328922"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Slot.Validation.1671879490221.1380640162438.1121658328922",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What should I do turn the light on or off"
+                    }
+                ]
+            }
+        ]
+    }
+}

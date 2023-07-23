@@ -1,0 +1,42 @@
+sudo apt-get install build-essential libssl-dev libffi-dev python3-dev
+
+See this link for steps https://www.hackster.io/nishit-patel/controlling-raspberry-pi-using-alexa-33715b
+https://github.com/nishitpatel28/Controlling-Raspberry-Pi-using-Alexa
+
+
+Installing Ngrok:
+Make sure your Raspberry Pi is completely updated.
+sudo apt update && sudo apt upgrade
+
+Download ngrok for "linux arm" from https://ngrok.com/download. 
+Unzip the downloaded ngrok file you have downloaded.
+
+unzip path/ngrok.zip  
+Start HTTP tunnel on port 5000.
+
+./ngrok http 5000
+
+python3 -m pip install Flask-Ask
+pip3 install --upgrade setuptools
+pip3 install 'cryptography<2.2'
+
+
+Alexa Skill
+Open your Alexa Skill console and create a new skill. Name your skill anything you like.
+In "Choose a model to add to your skill", select 'custom' and 'create skill'.
+Open JSON editor and copy the JSON code in the git repository.
+
+Save the interaction model and Build the skill
+
+Connect Alexa Skill to Raspberry Pi.
+In 'Endpoint' on Alexa Skill, select HTTPS and write the URL generated from ngrok in default region. 
+For SSL certificate type, select 'My development endpoint is sub-domain of domain that has a wildcard certificate 
+from a certificate authority.' Save the endpoint.
+
+Testing the Skill
+Before testing the skill, make sure you have followed all the steps above. 
+
+Head over to 'test' section of your skill console and start testing your skill. 
+Try saying commands like "Alexa, ask raspberry to turn on light". 
+This should turn on the light connected to mochad on the Raspberry Pi. 
+If you have an Amazon Echo device, you can test you skill on your device.

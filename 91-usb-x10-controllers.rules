@@ -1,0 +1,2 @@
+SUBSYSTEM=="usb", ACTION=="add", ATTR{idVendor}=="0bc7", ATTR{idProduct}=="0001", USER="mosquitto", GROUP="mosquitto", MODE="0660", RUN+="/bin/systemctl --no-block start mochad.service", TAG+="systemd"
+SUBSYSTEM=="usb", ACTION=="add", ATTR{idVendor}=="0bc7", ATTR{idProduct}=="0002", USER="mosquitto", GROUP="mosquitto", MODE="0660", RUN+="/bin/systemctl --no-block start mochad.service", TAG+="systemd"
